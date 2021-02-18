@@ -6,7 +6,7 @@ using System.Text;
 
 namespace SimpleWebchat.BLL.Interfaces
 {
-    interface IAdminUser<TEntity> where TEntity : AdminUser
+    public interface IAdminUser<TEntity> where TEntity : AdminUser
     {
         List<TEntity> ListUsers();
         TEntity Find(int id);

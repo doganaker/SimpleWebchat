@@ -6,7 +6,7 @@ using System.Text;
 
 namespace SimpleWebchat.DAL.Models.Context
 {
-    class WebchatContext : DbContext
+    public class WebchatContext : DbContext
     {
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
