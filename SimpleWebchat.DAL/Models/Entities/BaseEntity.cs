@@ -4,7 +4,7 @@ using System.Text;
 
 namespace SimpleWebchat.DAL.Models.Entities
 {
-    class BaseEntity
+    public class BaseEntity
     {
         public int ID { get; set; }
 
