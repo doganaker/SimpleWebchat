@@ -14,5 +14,6 @@ namespace SimpleWebchat.DAL.Models.Context
         }
 
         public DbSet<AdminUser> AdminUsers { get; set; }
+        public DbSet<Chat> Chats { get; set; }
     }
 }

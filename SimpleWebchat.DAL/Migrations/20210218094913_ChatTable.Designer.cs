@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using SimpleWebchat.DAL.Models.Context;
 
 namespace SimpleWebchat.DAL.Migrations
 {
     [DbContext(typeof(WebchatContext))]
-    partial class WebchatContextModelSnapshot : ModelSnapshot
+    [Migration("20210218094913_ChatTable")]
+    partial class ChatTable
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
