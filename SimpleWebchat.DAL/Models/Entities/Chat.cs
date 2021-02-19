@@ -6,8 +6,8 @@ namespace SimpleWebchat.DAL.Models.Entities
 {
     public class Chat : BaseEntity
     {
-        public string CallerID { get; set; }
-        public string ClientID { get; set; }
+        public int CallerID { get; set; }
+        public int ClientID { get; set; }
         public string Content { get; set; }
 
         private string _time = DateTime.Now.ToString("HH:mm");
