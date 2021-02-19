@@ -6,7 +6,9 @@
 
   <ItemGroup>
     <Folder Include="Controllers\" />
+    <Folder Include="Hubs\" />
     <Folder Include="Views\" />
+    <Folder Include="wwwroot\js\signalr\" />
   </ItemGroup>
 
   <ItemGroup>

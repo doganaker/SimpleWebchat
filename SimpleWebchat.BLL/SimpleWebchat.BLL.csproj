@@ -5,10 +5,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="UnitOfWork\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\SimpleWebchat.DAL\SimpleWebchat.DAL.csproj" />
   </ItemGroup>
 
