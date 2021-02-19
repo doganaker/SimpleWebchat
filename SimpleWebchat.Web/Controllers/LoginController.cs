@@ -39,7 +39,8 @@ namespace SimpleWebchat.Web.Controllers
                 {
                     new Claim(ClaimTypes.Email, model.Email),
                     new Claim(ClaimTypes.Name, user.Name),
-                    new Claim(ClaimTypes.Sid, user.ID.ToString())
+                    new Claim(ClaimTypes.Sid, user.ID.ToString()),
+                    new Claim(ClaimTypes.Role, user.IsAdmin.ToString())
                 };
 
                     var userIdentity = new ClaimsIdentity(claims, "login");
@@ -48,7 +49,7 @@ namespace SimpleWebchat.Web.Controllers
 
                     await HttpContext.SignInAsync(principal);
 
-                    return Redirect("/Home/Index");
+                    return RedirectToAction("Index","Home");
                 }
                 else
                 {
@@ -66,7 +67,7 @@ namespace SimpleWebchat.Web.Controllers
         public async Task<IActionResult> Logout()
         {
             await HttpContext.SignOutAsync();
-            return Redirect("/");
+            return Redirect("/girisyap");
         }
     }
 }

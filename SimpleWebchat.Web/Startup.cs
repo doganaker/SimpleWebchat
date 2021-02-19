@@ -32,7 +32,7 @@ namespace SimpleWebchat.Web
             services.AddSignalR();
             services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme).AddCookie(options =>
             {
-                options.LoginPath = "/Login/Login";
+                options.LoginPath = "/girisyap";
             });
         }
 
@@ -47,6 +47,7 @@ namespace SimpleWebchat.Web
             app.UseRouting();
             app.UseStaticFiles();
             app.UseAuthentication();
+            app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
             {
