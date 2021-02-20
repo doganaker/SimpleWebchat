@@ -16,6 +16,14 @@ namespace SimpleWebchat.BLL.Repository
         {
             context = new WebchatContext();
         }
+
+        public void Add(TEntity entity)
+        {
+            entity.IsDeleted = false;
+            entity.Time = DateTime.Now.ToString("HH:mm");
+            context.Set<TEntity>().Add(entity);
+        }
+
         List<TEntity> IChat<TEntity>.GetChat(int callerId, int clientId)
         {
             var history = context.Set<TEntity>().Where(q => (q.CallerID == callerId && q.ClientID == clientId) || (q.CallerID == clientId && q.ClientID == callerId)).ToList();

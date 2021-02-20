@@ -15,6 +15,11 @@ namespace SimpleWebchat.BLL.UnitOfWork
             _context = context;
         }
 
+        public int SaveChanges()
+        {
+            return _context.SaveChanges();
+        }
+
         private bool disposed = false;
         protected virtual void Dispose(bool disposing)
         {
@@ -33,11 +38,6 @@ namespace SimpleWebchat.BLL.UnitOfWork
         {
             Dispose(true);
             GC.SuppressFinalize(this);
-        }
-
-        public int SaveChanges()
-        {
-            return _context.SaveChanges();
         }
     }
 }

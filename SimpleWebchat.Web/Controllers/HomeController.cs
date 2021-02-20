@@ -31,5 +31,19 @@ namespace SimpleWebchat.Web.Controllers
 
             return View(userList);
         }
+
+        public JsonResult User(int id)
+        {
+            var user = _adminuserrepository.Find(id);
+            return Json(user);
+        }
+
+        [Route("GetChat/{callerId}/{clientId}")]
+        public JsonResult GetChat(int callerId, int clientId)
+        {
+            List<Chat> chat = _chatrepository.GetChat(callerId,clientId);
+
+            return Json(chat);
+        }
     }
 }
