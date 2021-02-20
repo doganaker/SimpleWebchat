@@ -37,14 +37,7 @@ namespace SimpleWebchat.BLL.UnitOfWork
 
         public int SaveChanges()
         {
-            try
-            {
-                return _context.SaveChanges();
-            }
-            catch
-            {
-                throw;
-            }
+            return _context.SaveChanges();
         }
     }
 }
