@@ -20,6 +20,8 @@ namespace SimpleWebchat.Web.Hubs
 
         public override Task OnConnectedAsync()
         {
+            _context = new WebchatContext();
+
             var email = Context.User.Claims.ToArray()[0].Value;
 
             _adminUser = new AdminUserRepository<AdminUser>();
@@ -31,8 +33,7 @@ namespace SimpleWebchat.Web.Hubs
 
             //_unitOfWork = new UnitOfWork(_context);
             //_unitOfWork.SaveChanges();
-
-            _context = new WebchatContext();
+            
             _context.SaveChanges();
 
             string connectedUID = Context.User.Claims.ToArray()[1].Value;
@@ -44,9 +45,10 @@ namespace SimpleWebchat.Web.Hubs
 
         public override Task OnDisconnectedAsync(Exception exception)
         {
-            var email = Context.User.Claims.ToArray()[0].Value;
-
+            _context = new WebchatContext();
             _adminUser = new AdminUserRepository<AdminUser>();
+
+            var email = Context.User.Claims.ToArray()[0].Value;
 
             var user = _adminUser.FirstOrDefault(q => q.EMail == email);
 
@@ -55,7 +57,6 @@ namespace SimpleWebchat.Web.Hubs
             //_unitOfWork = new UnitOfWork(_context);
             //_unitOfWork.SaveChanges();
 
-            _context = new WebchatContext();
             _context.SaveChanges();
 
             string connectedUID = Context.User.Claims.ToArray()[1].Value;
@@ -80,12 +81,11 @@ namespace SimpleWebchat.Web.Hubs
             text.CallerID = callerId;
             text.ClientID = clientId;
 
+            _context = new WebchatContext();
             _chat = new ChatRepository<Chat>();
             //_unitOfWork = new UnitOfWork(_context);
 
             _chat.Add(text);
-
-            _context = new WebchatContext();
             _context.SaveChanges();
 
             //_unitOfWork.SaveChanges();
