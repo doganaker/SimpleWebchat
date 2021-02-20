@@ -1,0 +1,43 @@
+﻿
+@{
+    ViewData["Title"] = "Add";
+    Layout = "~/Views/Admin/Layout/AdminLayout.cshtml";
+}
+
+@model SimpleWebchat.Web.Models.VM.UserAddVM
+
+<h1 class="h3 mb-2 text-gray-800">Kullanıcı Ekle</h1>
+
+<form action="/Admin/Add" method="post">
+    <div class="form-group">
+        @Html.LabelFor(q => q.name)
+        @Html.TextBoxFor(q => q.name, new { @class = "form-control", @placeholder = "Ad" })
+        @Html.ValidationMessageFor(q => q.name)
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(q => q.surname)
+        @Html.TextBoxFor(q => q.surname, new { @class = "form-control", @placeholder = "Soyad" })
+        @Html.ValidationMessageFor(q => q.surname)
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(q => q.email)
+        @Html.TextBoxFor(q => q.email, new { @type = "email", @class = "form-control", @placeholder = "Email Adresi" })
+        @Html.ValidationMessageFor(q => q.email)
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(q => q.password)
+        @Html.PasswordFor(q => q.password, new { @class = "form-control", @placeholder = "Şifre" })
+        @Html.ValidationMessageFor(q => q.password)
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(q => q.confirmpassword)
+        @Html.PasswordFor(q => q.confirmpassword, new { @class = "form-control", @placeholder = "Şifre Tekrar" })
+        @Html.ValidationMessageFor(q => q.confirmpassword)
+    </div>
+    @*<div class="form-group form-check">
+        <input type="checkbox" class="form-check-input" id="exampleCheck1">
+        <label class="form-check-label" for="exampleCheck1">Check me out</label>
+    </div>*@
+    <button type="submit" class="btn btn-primary">Ekle</button>
+</form>
+

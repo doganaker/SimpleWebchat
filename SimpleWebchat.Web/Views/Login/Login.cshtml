@@ -1,0 +1,131 @@
+﻿
+@{
+    Layout = null;
+}
+
+@model SimpleWebchat.Web.Models.VM.LoginVM
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Giriş Yap</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            background-color: #4788FF;
+        }
+
+        .field-validation-error {
+            color: red;
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        .container a {
+            text-decoration: none;
+        }
+
+        .form h1 {
+            color: ghostwhite;
+            font-family: 'Dancing Script', cursive;
+            font-size: 55px;
+            margin-bottom: 15px;
+            -webkit-text-stroke: 1px #4788FF;
+        }
+
+        .form {
+            width: 400px;
+            height: 400px;
+            background-color: ghostwhite;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            border: 1px solid #bbb;
+            border-radius: 20px;
+        }
+
+        .row label {
+            color: ghostwhite;
+            -webkit-text-stroke: 1px #4788FF;
+            font-size: 20px;
+            font-family: 'Dancing Script', cursive;
+        }
+
+        .title {
+            margin-top: 5%;
+            font-family: 'Dancing Script', cursive;
+            font-size: 100px;
+            -webkit-text-stroke: 3px #4788FF;
+            text-shadow: -5px 0 ghostwhite, 0 5px ghostwhite, 3px 0 ghostwhite, 0 -3px ghostwhite;
+            color: ghostwhite;
+        }
+
+        .btn {
+            font-family: 'Dancing Script', cursive;
+            font-size: 20px;
+            border-radius: 20px;
+            width: 180px;
+            margin-bottom: 15px;
+            margin-top: -15px;
+            margin-left: 20px;
+            margin-right: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="/"><h1 class="title">WebchatApp</h1></a>
+        <br />
+        <div class="form">
+            <div class="row">
+                <h1>Giriş Yap</h1>
+            </div>
+
+            <span style="color:red; margin-bottom:5px;">@ViewBag.error</span>
+            <form action="/Login/Login" method="post">
+                <div class="form-group">
+                    <div class="row" style="flex-direction:column;">
+                        @Html.ValidationMessageFor(q => q.Email)
+                        <label>EMail</label>
+                    </div>
+                    <div class="row">
+                        @Html.TextBoxFor(q => q.Email, new { @type = "email", @class = "form-control" })
+                    </div>
+                </div>
+
+                <br />
+
+                <div class="form-group">
+                    <div class="row" style="flex-direction:column;">
+                        @Html.ValidationMessageFor(q => q.Password)
+                        <label>Şifre</label>
+                    </div>
+                    <div class="row">
+                        @Html.PasswordFor(q => q.Password, new { @class = "form-control" })
+                    </div>
+                </div>
+
+                <br />
+
+                <button class="btn btn-outline-primary" type="submit">Login</button>
+            </form>
+
+        </div>
+
+    </div>
+</body>
+</html>
